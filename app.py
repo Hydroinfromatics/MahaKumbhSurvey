@@ -95,11 +95,25 @@ def create_survey_app():
 
             # Initialize data structure for all questions
             data = {
-                'travel_origin': {'title': 'Travel Origin', 'type': 'pie', 'labels': [], 'values': [], 'colors': ['#1e88e5', '#64b5f6', '#bbdefb', '#1976d2']},
-                'water_facility_location': {'title': 'Ease of Locating Water Facilities', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#ff7043', '#ffa726', '#ffcc80', '#d84315']},
-                'facility_frequency': {'title': 'Frequency of Water Facilities', 'type': 'doughnut', 'labels': [], 'values': [], 'colors': ['#66bb6a', '#a5d6a7', '#388e3c', '#2e7d32']},
-                'facility_type': {'title': 'Type of Water Facility', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#ab47bc', '#ce93d8', '#8e24aa', '#6a1b9a']},
-            }
+            'travel_origin': {'title': 'Travel Origin', 'type': 'pie', 'labels': [], 'values': [], 'colors': ['#1e88e5', '#64b5f6', '#bbdefb', '#1976d2']},
+            'water_facility_location': {'title': 'Ease of Locating Water Facilities', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#ff7043', '#ffa726', '#ffcc80', '#d84315']},
+            'facility_frequency': {'title': 'Frequency of Water Facilities', 'type': 'doughnut', 'labels': [], 'values': [], 'colors': ['#66bb6a', '#a5d6a7', '#388e3c', '#2e7d32']},
+            'facility_type': {'title': 'Type of Water Facility', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#ab47bc', '#ce93d8', '#8e24aa', '#6a1b9a']},
+            'facility_functionality': {'title': 'Functionality of Water Facilities', 'type': 'pie', 'labels': [], 'values': [], 'colors': ['#29b6f6', '#4fc3f7', '#0288d1', '#01579b']},
+            'water_sufficiency': {'title': 'Water Sufficiency', 'type': 'polarArea', 'labels': [], 'values': [], 'colors': ['#42a5f5', '#90caf9', '#1e88e5', '#1565c0']},
+            'waiting_time': {'title': 'Waiting Time for Water', 'type': 'doughnut', 'labels': [], 'values': [], 'colors': ['#ffa726', '#ffb74d', '#f57c00', '#e65100']},
+            'water_quality': {'title': 'Water Quality Ratings', 'type': 'polarArea', 'labels': [], 'values': [], 'colors': ['#ef5350', '#e57373', '#c62828', '#b71c1c']},
+            'water_characteristics': {'title': 'Water Characteristics', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#7e57c2', '#b39ddb', '#512da8', '#311b92']},
+            'health_issues': {'title': 'Health Issues After Water Usage', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#29b6f6', '#4fc3f7', '#0288d1', '#01579b']},
+            'sanitation_availability': {'title': 'Sanitation Availability', 'type': 'pie', 'labels': [], 'values': [], 'colors': ['#66bb6a', '#a5d6a7', '#388e3c', '#2e7d32']},
+            'sanitation_cleanliness': {'title': 'Sanitation Cleanliness', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#ff7043', '#ffa726', '#ffcc80', '#d84315']},
+            'sanitation_accessibility': {'title': 'Sanitation Accessibility', 'type': 'doughnut', 'labels': [], 'values': [], 'colors': ['#ef5350', '#e57373', '#c62828', '#b71c1c']},
+            'dipping_visit': {'title': 'Visits to Dipping Places', 'type': 'polarArea', 'labels': [], 'values': [], 'colors': ['#ab47bc', '#ce93d8', '#8e24aa', '#6a1b9a']},
+            'dipping_cleanliness': {'title': 'Cleanliness at Dipping Places', 'type': 'doughnut', 'labels': [], 'values': [], 'colors': ['#42a5f5', '#90caf9', '#1e88e5', '#1565c0']},
+            'water_contamination': {'title': 'Water Contamination', 'type': 'polarArea', 'labels': [], 'values': [], 'colors': ['#29b6f6', '#4fc3f7', '#0288d1', '#01579b']},
+            'dipping_health_issues': {'title': 'Health Issues After Dipping', 'type': 'bar', 'labels': [], 'values': [], 'colors': ['#7e57c2', '#b39ddb', '#512da8', '#311b92']}
+        }
+
 
             # Aggregate counts for each field
             for survey in surveys:
