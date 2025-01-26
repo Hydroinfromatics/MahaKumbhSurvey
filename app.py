@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
 import logging
+import os
 
 # Define Indian Standard Time
 IST = pytz.timezone('Asia/Kolkata')
@@ -138,4 +139,5 @@ def create_survey_app():
 
 if __name__ == '__main__':
     app = create_survey_app()
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use port from environment, default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
