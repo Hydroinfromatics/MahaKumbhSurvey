@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MahaKumbh Mela 2025 - Water Facilities Survey | महाकुंभ मेला 2025- जल सुविधाएं सर्वेक्षण</title>
+    <link href="../static//all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
+	 <script src="../static/sweetalert2@11.js"></script>
+</head>
+<body>
+    <div class="blob-container">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+         
+				<img src="/static/logo.png" alt="ICCW Logo">
+				<img src="/static/iitm.png" alt="IITM Logo">
+				<img src="static/kumbh_mela.png" alt="kumbh_mela logo">
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+				<a href="/responses">Check Responses</a>
+				<a href="https://mahakumbh.iccw.world/dashboard" target="_blank"> MahaKumbh Dashboard</a>
+				<a href="https://iccw.world/" target="_blank"> Our Website</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form id="surveyForm" class="glass-form">
+            <h2>Water Facilities Questionnaire | जल सुविधाएं प्रश्नावली</h2>
+            
+            <!-- General Information -->
+            <section class="form-section">
+                <h3>General Information | सामान्य जानकारी</h3>
+                <div class="form-group">
+                    <label for="name">1. Name | नाम:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name | अपना नाम दर्ज करें">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">2. Email | ईमेल:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email | अपना ईमेल दर्ज करें">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">3. Phone | फोन:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number | अपना फोन नंबर दर्ज करें">
+                </div>
+
+                <div class="form-group">
+                    <label>4. Where are you traveling from? | आप कहां से यात्रा कर रहे हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="travel_origin" value="within_district" required> Within the same district | उसी जिले से</label>
+                        <label><input type="radio" class="radio-input" name="travel_origin" value="other_districts"> Other districts in the state | राज्य के अन्य जिले</label>
+                        <label><input type="radio" class="radio-input" name="travel_origin" value="neighbouring_states"> Neighbouring states | पड़ोसी राज्य</label>
+                        <label><input type="radio" class="radio-input" name="travel_origin" value="other_states"> Other states | अन्य राज्य</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Availability of Drinking Water Facilities -->
+            <section class="form-section">
+                <h3>Availability of Drinking Water Facilities | पेयजल सुविधाओं की उपलब्धता</h3>
+                <div class="form-group">
+                    <label>5. How easy is it to locate drinking water facilities? | पेयजल सुविधाएं ढूंढना कितना आसान है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="water_facility_location" value="very_easy" required> Very easy | बहुत आसान</label>
+                        <label><input type="radio" class="radio-input" name="water_facility_location" value="somewhat_easy"> Somewhat easy | थोड़ा आसान</label>
+                        <label><input type="radio" class="radio-input" name="water_facility_location" value="difficult"> Difficult | मुश्किल</label>
+                        <label><input type="radio" class="radio-input" name="water_facility_location" value="could_not_locate"> Could not locate | नहीं मिला</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>6. How frequently do you encounter a drinking water facility? | आपको कितनी बार पेयजल सुविधा मिलती है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="facility_frequency" value="100-200m" required> Every 100-200 meters | हर 100-200 मीटर</label>
+                        <label><input type="radio" class="radio-input" name="facility_frequency" value="500m"> Every 500 meters | हर 500 मीटर</label>
+                        <label><input type="radio" class="radio-input" name="facility_frequency" value="1km"> More than 1 km apart | 1 किमी से अधिक दूर</label>
+                        <label><input type="radio" class="radio-input" name="facility_frequency" value="rarely"> Rarely | बहुत कम</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>7. What type of drinking water facility do you use the most? | आप किस प्रकार की पेयजल सुविधा का सबसे अधिक उपयोग करते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="facility_type" value="stand_post" required> Stand post | स्टैंड पोस्ट</label>
+                        <label><input type="radio" class="radio-input" name="facility_type" value="ro_atm"> RO ATM | आरओ एटीएम</label>
+                        <label><input type="radio" class="radio-input" name="facility_type" value="bottled_water"> Bottled water | बोतलबंद पानी</label>
+                        <label>
+                            <input type="radio" class="radio-input" name="facility_type" value="other"> Other | अन्य
+                            <input type="text" class="radio-input" name="facility_type_other" placeholder="Please specify | कृपया निर्दिष्ट करें">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>8. Is the drinking water facility functional when you need it? | क्या पेयजल सुविधा आवश्यक समय पर कार्यात्मक होती है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="facility_functionality" value="always" required> Always | हमेशा</label>
+                        <label><input type="radio" class="radio-input" name="facility_functionality" value="sometimes"> Sometimes | कभी-कभी</label>
+                        <label><input type="radio" class="radio-input" name="facility_functionality" value="rarely"> Rarely | बहुत कम</label>
+                        <label><input type="radio" class="radio-input" name="facility_functionality" value="never"> Never | कभी नहीं</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sufficiency of Drinking Water Facilities -->
+            <section class="form-section">
+                <h3>Sufficiency of Drinking Water Facilities | पेयजल सुविधाओं की पर्याप्तता</h3>
+                <div class="form-group">
+                    <label>9. Is the quantity of drinking water sufficient for your needs? | क्या पेयजल की मात्रा आपकी जरूरतों के लिए पर्याप्त है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="water_sufficiency" value="always_sufficient" required> Yes, always sufficient | हां, हमेशा पर्याप्त</label>
+                        <label><input type="radio" class="radio-input" name="water_sufficiency" value="sometimes_sufficient"> Sometimes sufficient | कभी-कभी पर्याप्त</label>
+                        <label><input type="radio" class="radio-input" name="water_sufficiency" value="rarely_sufficient"> Rarely sufficient | शायद ही पर्याप्त</label>
+                        <label><input type="radio" class="radio-input" name="water_sufficiency" value="not_sufficient"> Not sufficient at all | बिल्कुल पर्याप्त नहीं</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>10. Do you experience long waiting times to access water? | क्या आपको पानी लेने के लिए लंबा इंतजार करना पड़ता है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="waiting_time" value="no_wait" required> No waiting time | कोई प्रतीक्षा समय नहीं</label>
+                        <label><input type="radio" class="radio-input" name="waiting_time" value="under_5min"> Less than 5 minutes | 5 मिनट से कम</label>
+                        <label><input type="radio" class="radio-input" name="waiting_time" value="5-10min"> 5-10 minutes | 5-10 मिनट</label>
+                        <label><input type="radio" class="radio-input" name="waiting_time" value="over_10min"> More than 10 minutes | 10 मिनट से अधिक</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quality of Drinking Water -->
+            <section class="form-section">
+                <h3>Quality of Drinking Water | पेयजल की गुणवत्ता</h3>
+                <div class="form-group">
+                    <label>11. How do you rate the quality of drinking water? | आप पेयजल की गुणवत्ता को कैसे आंकते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="water_quality" value="excellent" required> Excellent | उत्कृष्ट</label>
+                        <label><input type="radio" class="radio-input" name="water_quality" value="good"> Good | अच्छा</label>
+                        <label><input type="radio" class="radio-input" name="water_quality" value="average"> Average | औसत</label>
+                        <label><input type="radio" class="radio-input" name="water_quality" value="poor"> Poor | खराब</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>12. Do you notice any odour, taste, or colour in the drinking water? | क्या आप पेयजल में कोई गंध, स्वाद, या रंग देखते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="water_characteristics" value="clean_fresh" required> No, it is clean and fresh | नहीं, यह साफ और ताजा है</label>
+                        <label><input type="radio" class="radio-input" name="water_characteristics" value="slight_odor"> Yes, slight odour or taste | हां, हल्की गंध या स्वाद</label>
+                        <label><input type="radio" class="radio-input" name="water_characteristics" value="strong_odor"> Yes, strong odour or unusual taste | हां, तीव्र गंध या असामान्य स्वाद</label>
+                        <label><input type="radio" class="radio-input" name="water_characteristics" value="visibly_unclean"> Yes, it is visibly unclean | हां, यह स्पष्ट रूप से गंदा है</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>13. Do you or anyone in your group face health issues after drinking the water? | क्या आप या आपके समूह में कोई व्यक्ति पानी पीने के बाद स्वास्थ्य समस्याओं का सामना करता है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="health_issues" value="no_issues" required> No issues | कोई समस्या नहीं</label>
+                        <label><input type="radio" class="radio-input" name="health_issues" value="minor_discomfort"> Minor discomfort | हल्की असुविधा</label>
+                        <label>
+                            <input type="radio" class="radio-input" name="health_issues" value="health_issues"> Health issues | स्वास्थ्य समस्याएं
+                            <input type="text" class="radio-input" name="health_issues_specify" placeholder="Please specify | कृपया निर्दिष्ट करें">
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sanitation Facilities -->
+            <section class="form-section">
+                <h3>Sanitation Facilities | स्वच्छता सुविधाएं</h3>
+                <div class="form-group">
+                    <label>14. Are sanitation facilities (toilets, washrooms) available? | क्या स्वच्छता सुविधाएं (शौचालय, वॉशरूम) उपलब्ध हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="sanitation_availability" value="always" required> Yes, always available | हां, हमेशा उपलब्ध</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_availability" value="sometimes"> Sometimes available | कभी-कभी उपलब्ध</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_availability" value="rarely"> Rarely available | शायद ही उपलब्ध</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_availability" value="not_available"> Not available | उपलब्ध नहीं</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>15. How do you rate the cleanliness of the sanitation facilities? | आप स्वच्छता सुविधाओं की सफाई को कैसे आंकते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="sanitation_cleanliness" value="excellent" required> Excellent | उत्कृष्ट</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_cleanliness" value="good"> Good | अच्छा</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_cleanliness" value="average"> Average | औसत</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_cleanliness" value="poor"> Poor | खराब</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>16. Do you face any difficulties in accessing sanitation facilities? | क्या आपको स्वच्छता सुविधाओं तक पहुंचने में कोई कठिनाई होती है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="sanitation_accessibility" value="no_difficulty" required> No difficulty | कोई कठिनाई नहीं</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_accessibility" value="some_difficulty"> Some difficulty | कुछ कठिनाई</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_accessibility" value="significant_difficulty"> Significant difficulty | महत्वपूर्ण कठिनाई</label>
+                        <label><input type="radio" class="radio-input" name="sanitation_accessibility" value="cannot_access"> Cannot access at all | बिल्कुल भी पहुंच नहीं सकते</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Place of Dipping and Water Quality -->
+            <section class="form-section">
+                <h3>Place of Dipping and Water Quality | डुबकी स्थान और जल गुणवत्ता</h3>
+                <div class="form-group">
+                    <label>17. Do you visit any place for dipping (bathing) in the Sangam? | क्या आप संगम में डुबकी लगाने (स्नान) के लिए किसी स्थान पर जाते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="dipping_visit" value="yes" required> Yes | हां</label>
+                        <label>
+                            <input type="radio" class="radio-input" name="dipping_visit" value="no"> No | नहीं
+                            <input type="text" name="dipping_visit_specify" placeholder="If no, specify where you go for dipping | यदि नहीं, तो बताएं कि आप कहां डुबकी लगाते हैं">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>18. If yes, how do you rate the cleanliness of the water at the dipping place? | यदि हां, तो डुबकी स्थान पर पानी की सफाई को आप कैसे आंकते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="dipping_cleanliness" value="very_clean" required> Very clean | बहुत साफ</label>
+                        <label><input type="radio" class="radio-input" name="dipping_cleanliness" value="clean"> Clean | साफ</label>
+                        <label><input type="radio" class="radio-input" name="dipping_cleanliness" value="average"> Average | औसत</label>
+                        <label><input type="radio" class="radio-input" name="dipping_cleanliness" value="polluted"> Polluted | प्रदूषित</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>19. Do you notice any signs of contamination in the dipping water? | क्या आप डुबकी पानी में प्रदूषण के कोई संकेत देखते हैं?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="water_contamination" value="no_contamination" required> No, the water appears clean | नहीं, पानी साफ दिखता है</label>
+                        <label><input type="radio" class="radio-input" name="water_contamination" value="slight_contamination"> Yes, slight contamination | हां, हल्का प्रदूषण</label>
+                        <label><input type="radio" class="radio-input" name="water_contamination" value="strong_contamination"> Yes, strong contamination | हां, गंभीर प्रदूषण</label>
+                        <label><input type="radio" class="radio-input" name="water_contamination" value="visibly_polluted"> Yes, visibly polluted | हां, स्पष्ट रूप से प्रदूषित</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>20. Do you experience any health issues after dipping in the water? | क्या आपको पानी में डुबकी लगाने के बाद कोई स्वास्थ्य समस्या होती है?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" class="radio-input" name="dipping_health_issues" value="no_issues" required> No issues | कोई समस्या नहीं</label>
+                        <label><input type="radio" class="radio-input" name="dipping_health_issues" value="minor_discomfort"> Minor discomfort | हल्की असुविधा</label>
+                        <label>
+                            <input type="radio" class="radio-input" name="dipping_health_issues" value="health_issues"> Health issues | स्वास्थ्य समस्याएं
+                            <input type="text" name="dipping_health_issues_specify" placeholder="Please specify | कृपया निर्दिष्ट करें">
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <button type="submit" class="submit-btn">Submit Survey | सर्वेक्षण जमा करें</button>
+        </form>
+    </div>
+    <div id="notification" class="notification">
+        <span class="notification-message"></span>
+        <button class="notification-close">&times;</button>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+</html>

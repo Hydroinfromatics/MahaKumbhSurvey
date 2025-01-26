@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MahaKumbh Survey Analytics Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	 <link rel="stylesheet" href="../static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #eef2f3, #8e9eab);
+        }
+
+        .container {
+            max-width: 1200px;
+			padding: 10px;
+			background: rgb(7 140 161 / 49%);
+			border-radius: 15px;
+			box-shadow: 0 8px 15px rgb(0 0 0 / 86%);
+			text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #3a3a3a;
+            font-size: 32px;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .chart-container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            max-height: 300px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3a3a3a;
+        }
+    </style>
+</head>
+<body>
+    <div class="blob-container">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+         
+				<img src="/static/logo.png" alt="ICCW Logo">
+				<img src="/static/iitm.png" alt="IITM Logo">
+				<img src="static/kumbh_mela.png" alt="kumbh_mela logo">
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+				<a href="./">Start Survey</a>
+				<a href="https://mahakumbh.iccw.world/dashboard" target="_blank"> MahaKumbh Dashboard</a>
+				<a href="https://iccw.world/" target="_blank"> Our Website</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Survey Analytics Dashboard</h2>
+        <div class="charts">
+            <!-- Dynamic Chart Containers -->
+            {% for question, chart_data in data.items() %}
+            <div class="chart-container">
+                
+                <canvas id="{{ question }}"></canvas>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        const surveyData = {{ data | tojson }};
+
+        // Utility function to create charts dynamically
+        const createChart = (ctx, type, labels, data, colors, title) => {
+            new Chart(ctx, {
+                type: type,
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: title,
+                        data: data,
+                        backgroundColor: colors,
+                        borderColor: colors.map(color => color.replace('0.8', '1')),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'top' },
+                        title: { display: true, text: title }
+                    }
+                }
+            });
+        };
+
+        // Iterate through survey data to generate charts
+        Object.keys(surveyData).forEach(question => {
+            const chartData = surveyData[question];
+            const ctx = document.getElementById(question).getContext('2d');
+            createChart(
+                ctx,
+                chartData.type || 'bar', // Default chart type is bar
+                chartData.labels,
+                chartData.values,
+                chartData.colors,
+                chartData.title
+            );
+        });
+    </script>
+</body>
+</html>
