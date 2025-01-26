@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(message)s')
 
 # Create Flask app
 def create_survey_app():
-    app = Flask(__name__, static_url_path='/survey/static')
+    app = Flask(__name__, static_url_path='/static')
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///kumbh_mela_survey.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
